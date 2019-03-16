@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
     tempMin: "22",
     modeAuto: false,
     radiatorOn: true,
-    captorName: "TEST Sale TD 12"
+    captorName: "TEST Salle TD 12"
   }
 
   espList = new Array();
