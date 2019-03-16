@@ -1,0 +1,189 @@
+#general{
+  width:100%;
+  height: 100%;
+}
+#header{
+  width:100%;
+  height: 60px;
+  top:0;
+  background-color: #00a8ff;
+}
+
+#header>img{
+  height: 60px;
+  margin-top: 10px;
+}
+
+#container{
+  height:100%;
+  width:70%;
+  min-width: 400px;
+  background-color: #f5f6fa;
+  padding-top: 5px;
+}
+.centred{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  clear: both;
+}
+
+.card{
+  height:auto;
+  width:300px;
+  min-height: 130px;
+  background-color: #ffff;
+  border-radius: 4px;
+
+}
+
+.cardLine{
+  margin-top:5px;
+  width:95%;
+  height: 130px;
+}
+.card{
+  background-color: #fff;
+  border-radius: 4px;
+
+  height:80px;
+  width:38%;
+  min-width: 390px;
+}
+
+.cardInactive{
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 4px;
+  height:130px;
+  width:38%;
+  min-width: 390px;
+  top: -130px;
+  z-index:10;
+  position: relative;
+}
+
+.leftDivision{
+  float:left;
+  width: 50%;
+  min-width: 173px;
+  height: 100%;
+}
+
+.rightDivision{
+  float:right;
+  width: 50%;
+  min-width: 173px;
+  height: 100%;
+}
+
+.cardTitle{
+  width: 100%;
+  text-align: left;
+  text-transform: uppercase;
+  color:#0097e6;
+  padding-top:5px;
+  padding-left:5px;
+}
+
+.cardTemperature{
+  padding-left:5px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color:#000;
+  font-size: 45px;
+}
+
+.minTemp{
+  height:50%;
+  width:100%;
+  font-size: 20px;
+  text-align: right;
+  padding:5px;
+  color:#afafaf;
+}
+
+.onOff{
+  height:70%;
+  width:100%;
+  font-size: 23px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 10px;
+  color:#e84118;
+  cursor: pointer;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 3px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: #336bff;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background:#336bff;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.mode{
+  height:30px;
+  width:100%;
+}
+.buttonMode{
+  height:100%;
+  width:50%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding:6px;
+  vertical-align:middle;
+  line-height: 30px;
+  color:#afafaf;
+  cursor:pointer;
+  border-bottom: 1px solid #f5f6fa ;
+  border-top-right-radius:4px ;
+}
+
+.buttonMode:hover{
+  animation-iteration-count: 1;
+  background-color: #79cbf5;
+  color:#f5f6fa;
+}
+
+.buttonLeft{
+  float:left;
+}
+
+.buttonRight{
+
+  float:right;
+
+}
+
+.buttonActive{
+  background-color: #00a8ff;
+  color:#fff;
+  border-bottom: none;
+}

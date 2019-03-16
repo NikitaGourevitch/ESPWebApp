@@ -1,0 +1,32 @@
+<div id="general">
+  <div id="header">
+    <img src="assets/header.png">
+  </div>
+  <div id="container" class="centred">
+    <div *ngFor="let esp of espList;" class="cardLine centred">
+      <div class="card centred">
+        <div class="leftDivision">
+          <div class="cardTitle">{{esp.captorName}}</div>
+          <div class="cardTemperature">{{esp.tempNow}}<span style="font-size: 20px;vertical-align: text-top;">°C</span></div>
+        </div>
+        <div class="rightDivision">
+          <div class="mode">
+            <div class="buttonLeft buttonMode" (mouseup)="togleMode(esp)" [ngClass]="{'buttonActive':esp.modeAuto==true}" >Aut</div>
+            <div class="buttonRight buttonMode" (mouseup)="togleMode(esp)"[ngClass]="{'buttonActive': esp.modeAuto==false}" >Man</div>
+          </div>
+          <div *ngIf="esp.modeAuto==true"  class="minTemp">
+              <span style="font-size: 12px;">min </span>
+              {{esp.tempMin}}
+              <span style="font-size: 12px;vertical-align: text-top;">°C</span>
+            <input type="range" min="1" max="60" value="{{esp.tempMin}}" class="slider" id="myRange" (mousedown)="action=true" (mouseup)="changeEsp(esp)" (input)="valueChanged($event.target.value,esp);">
+          </div>
+          <div *ngIf="esp.modeAuto==false">
+            <div  (mousedown)="action=true" (mouseup)="togleSwitch(esp)" *ngIf="esp.radiatorOn==false" class="onOff ">off</div>
+            <div (mousedown)="action=true" (mouseup)="togleSwitch(esp)" *ngIf="esp.radiatorOn==true" style="color:#4cd137;" class="onOff ">on</div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="esp.lastTime + 10000 < lastRequest " class="cardInactive centred"></div>
+    </div>
+  </div>
+</div>
