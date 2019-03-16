@@ -9,16 +9,18 @@ const char* password = "TODO";                  //local wifi password to set !!!
 
 const char serverAddress[] = "TODO";          // API server adress to set !!!!
 int port = 3000;                                    // API port adress to set !!!!
+int loopWait = 1000;                            // time yeld between loop
 /***************************************************************/
 
 // init valures
 float tempNow = 20.0;
 float tempBeffore = 0.0;
 float tempMin = 0.0;
-String captorName = "new"; 
-bool  radiatorOn = false; 
-bool modeAuto = true; 
+String captorName = "new";
+bool  radiatorOn = false;
+bool modeAuto = true;
 String macAdress = "";
+
 
 // init PIN
 int pinRadiator = 23;
@@ -29,7 +31,7 @@ int pinTemperature = 22;
 OneWire oneWire(pinTemperature);
 DallasTemperature tempSensor(&oneWire);
 
-//connect to wifi 
+//connect to wifi
 IPAddress ip;
 WiFiClient wifi;
 HttpClient serv = HttpClient(wifi, serverAddress, port);
@@ -62,20 +64,20 @@ void loop() {
   Serial.println(getThis);
   serv.get(getThis);
   int HttpRetCode = serv.responseStatusCode();
-  //update status 
+  //update status
   if(HttpRetCode > 0){
       DynamicJsonBuffer jsonBuffer(300);
       JsonObject& parsed = jsonBuffer.parseObject(serv.responseBody());
-      
+
       tempMin = parsed["esp"]["tempMin"].as <float>();
       radiatorOn = parsed["esp"]["radiatorOn"].as <bool>();
       modeAuto = parsed["esp"]["modeAuto"].as<bool>();
-      Serial.print("ce qon a recu"); 
+      Serial.print("ce qon a recu");
       Serial.print(tempNow);
       Serial.print(tempMin);
       Serial.print(radiatorOn);
       Serial.print(modeAuto);
-         
+
           if(modeAuto){
              if(tempNow < tempMin ){
           radiatorOn = true;
@@ -93,11 +95,11 @@ void loop() {
           }
   }
 
-  // create json data string 
+  // create json data string
   tempSensor.requestTemperaturesByIndex(0);
   tempNow=tempSensor.getTempCByIndex(0);
 
-  String postData = "{\"tempNow\":\""; 
+  String postData = "{\"tempNow\":\"";
   postData += tempNow;
   postData += "\",";
   postData += "\"ip\":\"";
@@ -130,7 +132,7 @@ void loop() {
   Serial.print("Response: ");
   Serial.println(response);
 
-  
- 
-  delay(1000);
+
+
+  delay(loopWait);
 }

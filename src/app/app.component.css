@@ -21,9 +21,30 @@
   background-color: #f5f6fa;
   padding-top: 5px;
 }
-
+.downloadText{
+  text-align: left;
+  width:200px;
+  padding: 5px;
+  margin: 10px;
+  margin-bottom: 0px;
+  font-size: 12px;
+  color: #565656;
+}
 .buttonDownload{
+  height: 30px;
+  width:200px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 0px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: rgba(62,176,88,1);
+  text-align: center;
+}
 
+.buttonDownload:hover{
+  background-color: rgba(62,176,88,0.7);
 }
 
 

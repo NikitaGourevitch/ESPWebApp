@@ -13,7 +13,17 @@ import {_} from 'lodash';
 export class AppComponent implements OnInit{
 
   title = 'Heat Controller';
-  testEsp =new Esp("192.128.0.1","24","22","true","Bureau");
+
+
+   testEsp = {
+    tempNow: "22",
+    ip: "monip",
+    tempMin: "22",
+    modeAuto: false,
+    radiatorOn: true,
+    captorName: "TEST Sale TD 12"
+  }
+
   espList = new Array();
   action = false;
   lastRequest = Date.now();
